@@ -1,0 +1,53 @@
+{
+	"name": "dicom-metadata-importer",
+	"label": "DICOM Metadata Importer",
+	"description": "Extracts DICOM header metadata. Works with Siemens, Philips, and GE DICOM data.",
+	"maintainer": "Kaleb Fischer <kalebfischer@flywheel.io>",
+	"author": "Michael Perry <lmperry@stanford.edu>",
+	"version": "0.8.3",
+
+	"inputs": {
+		"dicom": {
+			"base": "file",
+			"type": {
+				"enum": [
+					"dicom"
+				]
+			},
+			"description": "Archive (.zip) containing DICOM files."
+		}
+	},
+	"config": {
+		"timezone": {
+			"description": "Time Zone to which all timestamps should be localized. This will set the default time zone in the Gear and thus localize the timestamps to that time zone. Examples: 'America/Los_Angeles', 'America/New_York'. [default = 'UTC'].",
+			"type": "string",
+			"default": "UTC"
+		},
+		"sync": {
+			"description": "Synchronize classification definitions with the latest known updates found at scitran-apps/dicom-mr-classifier [default = true].",
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"environment": {
+		"GPG_KEY": "0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+		"LANG": "C.UTF-8",
+		"PATH": "/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+		"PYTHON_PIP_VERSION": "19.0.3",
+		"PYTHON_VERSION": "3.7.2"
+	},
+	"command": "python run.py",
+	"cite": "List citations here.",
+	"license": "Other",
+	"source": "",
+	"url": "",
+	"custom": {
+		"gear-builder": {
+			"category": "converter",
+			"image": "dicom-metadata-importer"
+		},
+		"flywheel": {
+			"suite": "Metadata Import and Classification"
+		}
+	}
+}
